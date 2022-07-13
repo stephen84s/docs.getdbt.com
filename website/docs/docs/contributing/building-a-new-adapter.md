@@ -404,6 +404,8 @@ Patch releases of `dbt-core` will _not_ include breaking changes to adapter-faci
 
 #### Versioning and releasing your adapter
 
+#### Versioning and releasing your adapter
+
 We strongly encourage you to adopt the following approach when versioning and releasing your plugin:
 - The minor version of your plugin should match the minor version in `dbt-core` (e.g. 1.1.x).
 - Aim to release a new version of your plugin for each new minor version of `dbt-core` (once every three months).
