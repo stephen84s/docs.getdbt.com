@@ -72,7 +72,13 @@ group by 1
 You can recognize Jinja based on the delimiters the language uses, which we refer to as "curlies":
 - **Expressions `{{ ... }}`**: Expressions are used when you want to output a string. You can use expressions to reference [variables](var) and call [macros](jinja-macros#macros).
 - **Statements `{% ... %}`**: Statements are used for control flow, for example, to set up `for` loops and `if` statements, or to define macros.
--  **Comments `{# ... #}`**: Jinja comments are used to prevent the text within the comment from compiling.
+-  **Comments `{# ... #}`**: Jinja comments are used to prevent the text within the comment from compiling. 
+
+:::info SQL single line comments `--` and dbt
+
+Be wary of using the SQL single line comments (`--`). Depending on the statement block you use ( `{% %}`, `{%- -%}` ), the text one the line below the comment may just get added to the commented out line. If you are lucky it will result in an invalid SQL and the table load will fail. Otherwise it may introduce, subtle and hard to diagnose bugs.
+
+:::
 
 When used in a dbt model, your Jinja needs to compile to a valid query. To check what SQL your Jinja compiles to:
 * **Using dbt Cloud:** Click the compile button to see the compiled SQL in the Compiled SQL pane
